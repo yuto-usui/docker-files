@@ -7,11 +7,12 @@ services:
       MYSQL_ROOT_PASSWORD: pass
     volumes:
       - db:/var/lib/mysql
-      # sql/ 以下の sql を初期データとして を読み込む
-      # - ./sql:/docker-entrypoint-initdb.d
+      # sql/ 以下の sql を初期データとして を読み込む (コメントアウト外す)
+#      - ./sql:/docker-entrypoint-initdb.d
   php:
     build: php
     ports:
+      # 0.0.0.0 / localhost
       - '80:80'
     volumes:
       # Apacheのドキュメントルート
